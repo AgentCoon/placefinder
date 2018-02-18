@@ -10,11 +10,14 @@ import javax.inject.Inject;
 import java.io.IOException;
 import java.util.List;
 
+import static java.util.stream.Collectors.toList;
+
 public class NominatimGateway {
 
     private final Logger logger = LoggerFactory.getLogger(getClass());
 
     private static final String FORMAT = "json";
+    private static final String CITY_TYPE = "city";
 
     private final NominatimClient nominatimClient;
 
@@ -27,8 +30,10 @@ public class NominatimGateway {
     }
 
     public List<NominatimResponseDto> findLocations(String country, String city) throws GeoLocationClientException {
-        return send(nominatimClient.findLocations(appId, country, city, FORMAT),
+        List<NominatimResponseDto> locations = send(nominatimClient.findLocations(appId, country, city, FORMAT),
                 String.format("failed to find locations for country: %s city: %s", country, city));
+
+        return locations.stream().filter(location -> location.getType().equals(CITY_TYPE)).collect(toList());
     }
 
     private <T> T send(Call<T> call, String errorMsg) throws GeoLocationClientException {

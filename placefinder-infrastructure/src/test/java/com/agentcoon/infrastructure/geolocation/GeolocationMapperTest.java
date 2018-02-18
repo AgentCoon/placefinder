@@ -18,18 +18,18 @@ public class GeolocationMapperTest {
 
     @Test
     public void fromDto() {
-        Float longitude = 54.12f;
-        Float latitude = 10.87f;
-        Float minLongitude = 53.11f;
-        Float maxLongitude = 55.45f;
-        Float minLatitude = 9.25f;
-        Float maxLatitude = 12.87f;
+        Float longitude = 16.9335199f;
+        Float latitude = 52.4082663f;
+        Float minLongitude = 16.7315878f;
+        Float maxLongitude = 17.0717011f;
+        Float minLatitude = 52.2919238f;
+        Float maxLatitude = 52.5093282f;
         String displayName = "Paris, France";
 
         NominatimResponseDto dto = aNominatimResponse()
                 .withLongitude(longitude)
                 .withLatitude(latitude)
-                .withBoundingBox(Arrays.asList(minLongitude, maxLongitude, minLatitude, maxLatitude))
+                .withBoundingBox(Arrays.asList(minLatitude, maxLatitude, minLongitude, maxLongitude))
                 .withDisplayName(displayName).build();
 
         List<Location> result = mapper.from(Arrays.asList(dto));

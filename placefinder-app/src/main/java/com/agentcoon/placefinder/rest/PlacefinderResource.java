@@ -2,8 +2,7 @@ package com.agentcoon.placefinder.rest;
 
 import com.agentcoon.placefinder.domain.geolocation.GeoLocationException;
 import com.agentcoon.placefinder.domain.placefinder.PlaceFinder;
-import com.agentcoon.placefinder.mapquest.client.GeoLocationClientException;
-import facebook4j.FacebookException;
+import org.eclipse.jetty.http.HttpStatus;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -29,11 +28,15 @@ public class PlacefinderResource {
     @GET
     @Path("/{country}/{city}/{searchString}")
     public Response getRepository(@PathParam("country") String country, @PathParam("city")
-            String city, @PathParam("searchString") String searchString) throws FacebookException, GeoLocationClientException, GeoLocationException {
+            String city, @PathParam("searchString") String searchString) {
 
         logger.info("Request country: {}, city: {}, search str: {}", country, city, searchString);
 
-        return Response.ok(placeFinder.findPlaces(country, city, searchString))
-                .build();
+        try{
+            return Response.ok(placeFinder.findPlaces(country, city, searchString))
+                    .build();
+        } catch (GeoLocationException e) {
+            return Response.status(HttpStatus.BAD_REQUEST_400).build();
+        }
     }
 }

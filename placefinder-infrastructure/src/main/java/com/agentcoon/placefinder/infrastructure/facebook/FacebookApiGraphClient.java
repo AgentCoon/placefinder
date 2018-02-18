@@ -34,8 +34,6 @@ public class FacebookApiGraphClient implements FacebookGateway {
         try {
             ResponseList<Place> places = facebook.searchPlaces(searchString, center, distance);
 
-            logger.info("Found {} places", places.size());
-
             return places.stream()
                     .map(mapper::from)
                     .collect(toList());

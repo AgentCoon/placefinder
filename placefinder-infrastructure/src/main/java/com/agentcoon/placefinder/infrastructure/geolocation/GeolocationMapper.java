@@ -24,10 +24,10 @@ public class GeolocationMapper {
                 .withLongitude(dto.getLongitude())
                 .withDisplayName(dto.getDisplayName())
                 .withBoundingBox(aBoundingBox()
-                        .withMinLongitude(boundingBox.get(0))
-                        .withMaxLongitude(boundingBox.get(1))
-                        .withMinLatitude(boundingBox.get(2))
-                        .withMaxLatitude(boundingBox.get(3)).build())
+                        .withMinLatitude(boundingBox.get(0))
+                        .withMaxLatitude(boundingBox.get(1))
+                        .withMinLongitude(boundingBox.get(2))
+                        .withMaxLongitude(boundingBox.get(3)).build())
                 .build();
         }
 }

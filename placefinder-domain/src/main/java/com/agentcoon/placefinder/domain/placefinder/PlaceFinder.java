@@ -35,9 +35,7 @@ public class PlaceFinder {
 
         locations.forEach(location -> {
 
-          logger.info("Finding places in {}", location.getDisplayName());
-
-            List<FacebookPlace> places = null;
+            List<FacebookPlace> places = new ArrayList<>();
 
             try {
                 places = facebookGateway.search(location.getLatitude(),

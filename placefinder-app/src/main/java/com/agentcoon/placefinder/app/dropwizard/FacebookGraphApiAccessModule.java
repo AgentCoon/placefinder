@@ -4,7 +4,9 @@ import com.agentcoon.placefinder.app.dropwizard.configuration.FacebookConfigurat
 import com.agentcoon.placefinder.app.dropwizard.configuration.PlacefinderConfiguration;
 import com.agentcoon.placefinder.domain.facebook.FacebookGateway;
 import com.agentcoon.placefinder.infrastructure.facebook.FacebookApiGraphClient;
-import com.google.inject.*;
+import com.google.inject.AbstractModule;
+import com.google.inject.Provides;
+import com.google.inject.Scopes;
 import facebook4j.Facebook;
 import facebook4j.FacebookFactory;
 import facebook4j.conf.ConfigurationBuilder;
@@ -23,7 +25,7 @@ public class FacebookGraphApiAccessModule extends AbstractModule {
         ConfigurationBuilder cb = new ConfigurationBuilder();
         cb.setOAuthAppId(facebookConfiguration.getAppId())
                 .setOAuthAppSecret(facebookConfiguration.getAppSecret())
-        .setOAuthAccessToken(facebookConfiguration.getAccessToken());
+                .setOAuthAccessToken(facebookConfiguration.getAccessToken());
 
         FacebookFactory ff = new FacebookFactory(cb.build());
 

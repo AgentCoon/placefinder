@@ -17,15 +17,19 @@ public class NominatimResponseDto {
     @JsonProperty("display_name")
     private String displayName;
 
+    @JsonProperty("type")
+    private String type;
+
     @JsonProperty("boundingbox")
     private List<Float> boundingBox;
 
     public NominatimResponseDto() {}
 
-    public NominatimResponseDto(Float latitude, Float longitude, String displayName, List<Float> boundingBox) {
+    public NominatimResponseDto(Float latitude, Float longitude, String displayName, String type, List<Float> boundingBox) {
         this.latitude = latitude;
         this.longitude = longitude;
         this.displayName = displayName;
+        this.type = type;
         this.boundingBox = boundingBox;
     }
 
@@ -41,6 +45,10 @@ public class NominatimResponseDto {
         return displayName;
     }
 
+    public String getType() {
+        return type;
+    }
+
     public List<Float> getBoundingBox() {
         return boundingBox;
     }
@@ -49,6 +57,7 @@ public class NominatimResponseDto {
         private Float latitude;
         private Float longitude;
         private String displayName;
+        private String type;
         private List<Float> boundingBox;
 
         public static Builder aNominatimResponse() {
@@ -70,13 +79,18 @@ public class NominatimResponseDto {
             return this;
         }
 
+        public Builder withType(String type) {
+            this.type = type;
+            return this;
+        }
+
         public Builder withBoundingBox(List<Float> boundingBox) {
             this.boundingBox = boundingBox;
             return this;
         }
 
         public NominatimResponseDto build() {
-            return new NominatimResponseDto(latitude, longitude, displayName, boundingBox);
+            return new NominatimResponseDto(latitude, longitude, displayName, type, boundingBox);
         }
     }
 }
