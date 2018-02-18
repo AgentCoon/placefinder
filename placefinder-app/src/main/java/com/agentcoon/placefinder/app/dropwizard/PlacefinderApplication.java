@@ -31,6 +31,7 @@ public class PlacefinderApplication extends Application<PlacefinderConfiguration
 
         guiceBundle = GuiceBundle.<PlacefinderConfiguration>newBuilder()
                 .addModule(new FacebookGraphApiAccessModule())
+                .addModule(new MapQuestAccessModule())
                 .enableAutoConfig("com.agentcoon.placefinder.rest",
                         "com.agentcoon.placefinder.app.dropwizard.autoinject")
                 .setConfigClass(PlacefinderConfiguration.class)

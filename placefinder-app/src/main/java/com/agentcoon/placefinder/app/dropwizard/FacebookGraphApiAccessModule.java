@@ -1,12 +1,38 @@
 package com.agentcoon.placefinder.app.dropwizard;
 
-import com.google.inject.Binder;
-import com.google.inject.Module;
+import com.agentcoon.placefinder.app.dropwizard.configuration.FacebookConfiguration;
+import com.agentcoon.placefinder.app.dropwizard.configuration.PlacefinderConfiguration;
+import com.agentcoon.placefinder.domain.facebook.FacebookGateway;
+import com.agentcoon.placefinder.infrastructure.facebook.FacebookApiGraphClient;
+import com.google.inject.*;
+import facebook4j.Facebook;
+import facebook4j.FacebookFactory;
+import facebook4j.conf.ConfigurationBuilder;
+import io.dropwizard.setup.Environment;
 
-public class FacebookGraphApiAccessModule implements Module {
+import javax.inject.Singleton;
+
+public class FacebookGraphApiAccessModule extends AbstractModule {
+
+    @Provides
+    @Singleton
+    public Facebook prepareFacebook(Environment environment, PlacefinderConfiguration configuration) {
+
+        FacebookConfiguration facebookConfiguration = configuration.getFacebookConfiguration();
+
+        ConfigurationBuilder cb = new ConfigurationBuilder();
+        cb.setOAuthAppId(facebookConfiguration.getAppId())
+                .setOAuthAppSecret(facebookConfiguration.getAppSecret())
+        .setOAuthAccessToken(facebookConfiguration.getAccessToken());
+
+        FacebookFactory ff = new FacebookFactory(cb.build());
+
+        return ff.getInstance();
+    }
 
     @Override
-    public void configure(Binder binder) {
+    protected void configure() {
 
+        bind(FacebookGateway.class).to(FacebookApiGraphClient.class).in(Scopes.SINGLETON);
     }
 }
