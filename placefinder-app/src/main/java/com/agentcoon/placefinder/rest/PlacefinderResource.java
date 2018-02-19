@@ -2,6 +2,7 @@ package com.agentcoon.placefinder.rest;
 
 import com.agentcoon.placefinder.domain.geolocation.GeoLocationException;
 import com.agentcoon.placefinder.domain.placefinder.PlaceFinder;
+import com.agentoon.placefinder.facebook.client.exception.FacebookClientException;
 import org.eclipse.jetty.http.HttpStatus;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -28,7 +29,7 @@ public class PlacefinderResource {
     @GET
     @Path("/{country}/{city}/{searchString}")
     public Response getRepository(@PathParam("country") String country, @PathParam("city")
-            String city, @PathParam("searchString") String searchString) {
+            String city, @PathParam("searchString") String searchString) throws FacebookClientException {
 
         logger.info("Request country: {}, city: {}, search str: {}", country, city, searchString);
 

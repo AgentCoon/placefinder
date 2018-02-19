@@ -1,6 +1,6 @@
-package com.agentcoon.placefinder.mapquest.nominatim.client;
+package com.agentcoon.placefinder.mapquest.client.nominatim;
 
-import com.agentcoon.placefinder.mapquest.client.GeoLocationClientException;
+import com.agentcoon.placefinder.mapquest.client.exception.GeoLocationClientException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import retrofit2.Call;
@@ -33,7 +33,9 @@ public class NominatimGateway {
         List<NominatimResponseDto> locations = send(nominatimClient.findLocations(appId, country, city, FORMAT),
                 String.format("failed to find locations for country: %s city: %s", country, city));
 
-        return locations.stream().filter(location -> location.getType().equals(CITY_TYPE)).collect(toList());
+        return locations.stream()
+                .filter(location -> location.getType().equals(CITY_TYPE))
+                .collect(toList());
     }
 
     private <T> T send(Call<T> call, String errorMsg) throws GeoLocationClientException {

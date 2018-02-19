@@ -1,4 +1,4 @@
-package com.agentcoon.placefinder.mapquest.client;
+package com.agentcoon.placefinder.mapquest.client.exception;
 
 public class GeoLocationClientException extends Exception {
 

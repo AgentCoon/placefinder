@@ -6,12 +6,12 @@ public class FacebookPlace {
 
     private final Double latitude;
     private final Double longitude;
-    private final String displayName;
+    private final String name;
 
-    private FacebookPlace(Double latitude, Double longitude, String displayName) {
+    private FacebookPlace(Double latitude, Double longitude, String name) {
         this.latitude = latitude;
         this.longitude = longitude;
-        this.displayName = displayName;
+        this.name = name;
     }
 
     public Double getLatitude() {
@@ -22,8 +22,8 @@ public class FacebookPlace {
         return longitude;
     }
 
-    public String getDisplayName() {
-        return displayName;
+    public String getName() {
+        return name;
     }
 
     @Override
@@ -33,20 +33,20 @@ public class FacebookPlace {
         FacebookPlace that = (FacebookPlace) o;
         return Objects.equals(latitude, that.latitude) &&
                 Objects.equals(longitude, that.longitude) &&
-                Objects.equals(displayName, that.displayName);
+                Objects.equals(name, that.name);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(latitude, longitude, displayName);
+        return Objects.hash(latitude, longitude, name);
     }
 
     public static final class Builder {
         private Double latitude;
         private Double longitude;
-        private String displayName;
+        private String name;
 
-        public static Builder aPlace() {
+        public static Builder aFacebookPlace() {
             return new Builder();
         }
 
@@ -60,13 +60,13 @@ public class FacebookPlace {
             return this;
         }
 
-        public Builder withDisplayName(String displayName) {
-            this.displayName = displayName;
+        public Builder withName(String name) {
+            this.name = name;
             return this;
         }
 
         public FacebookPlace build() {
-            return new FacebookPlace(latitude, longitude, displayName);
+            return new FacebookPlace(latitude, longitude, name);
         }
     }
 }

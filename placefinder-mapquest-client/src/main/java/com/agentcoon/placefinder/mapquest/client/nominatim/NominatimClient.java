@@ -1,4 +1,4 @@
-package com.agentcoon.placefinder.mapquest.nominatim.client;
+package com.agentcoon.placefinder.mapquest.client.nominatim;
 
 import retrofit2.Call;
 import retrofit2.http.GET;

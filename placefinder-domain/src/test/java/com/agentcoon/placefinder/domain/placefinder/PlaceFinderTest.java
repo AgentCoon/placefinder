@@ -13,7 +13,7 @@ import java.util.List;
 
 import static com.agentcoon.placefinder.domain.geolocation.BoundingBox.Builder.aBoundingBox;
 import static com.agentcoon.placefinder.domain.geolocation.Location.Builder.aLocation;
-import static com.agentcoon.placefinder.domain.placefinder.FacebookPlace.Builder.aPlace;
+import static com.agentcoon.placefinder.domain.placefinder.FacebookPlace.Builder.aFacebookPlace;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.fail;
 import static org.mockito.Matchers.any;
@@ -52,7 +52,7 @@ public class PlaceFinderTest {
                         .withMinLatitude(latitude)
                         .withMaxLatitude(latitude).build())
                 .build();
-        FacebookPlace facebookPlace = aPlace().build();
+        FacebookPlace facebookPlace = aFacebookPlace().build();
 
         when(geoLocationService.getLocations(country, city)).thenReturn(Collections.singletonList(location));
 

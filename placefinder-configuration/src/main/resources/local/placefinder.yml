@@ -5,11 +5,16 @@ logging:
 
 allowCORS: true
 
+#facebookConfiguration:
+#  appId: 1579356178784072
+#  appSecret: dc21080c8056d2da2d6b4f8ea598462d
+#  accessToken: EAACEdEose0cBAD0YEZA8vUgiZBZCTiGQ2dq2uw9lnMICGtHK8pSvOFtivdogZAmcuf83pAFKT3Oxka8ZAUI9ZCRZCuSky2A534kp6AXpRaZC3f7e1kfgTieThfp0FeSenowq7E4KXgZCUPh3ZB8Q6WSKENfS9mroet4ScnahK7GJvyXsGcJdPldP7bSZBlpfxY0ikMFNNqq3iWlDwZDZD
+#  #permissions: email,publish_stream
+
 facebookConfiguration:
+  url: https://graph.facebook.com/
   appId: 1579356178784072
   appSecret: dc21080c8056d2da2d6b4f8ea598462d
-  accessToken: EAACEdEose0cBAFKgQHN1L8mRIYMr9CN25mSgBU8ez0BYYesuZCoN9DXDISJ5cZAM8XTl3ig5KrVZBEXsFMjXK4g5ZBIqu67lE0YscnRCZBoewiYRz68JsrqwZAlDAbfz9Hvc04lbKTNvHQzmIQGNYojNsbPis3msz8Nty02Vb2JI29SscWlBQOAU4TAvIpvZAMBMUZBUZBYaJbwZDZD
-  #permissions: email,publish_stream
 
 mapQuestConfiguration:
   appKey: ThJ8QAlmNsJGHDoZ9H6byWsiALibXdYd

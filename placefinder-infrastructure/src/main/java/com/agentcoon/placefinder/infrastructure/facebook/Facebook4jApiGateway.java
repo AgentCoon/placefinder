@@ -12,14 +12,14 @@ import java.util.List;
 
 import static java.util.stream.Collectors.toList;
 
-public class FacebookApiGraphClient implements FacebookGateway {
+public class Facebook4jApiGateway implements FacebookGateway {
     private final Logger logger = LoggerFactory.getLogger(getClass());
 
     private final Facebook facebook;
     private final PlaceMapper mapper;
 
     @Inject
-    public FacebookApiGraphClient(Facebook facebook, PlaceMapper mapper) {
+    public Facebook4jApiGateway(Facebook facebook, PlaceMapper mapper) {
         this.facebook = facebook;
         this.mapper = mapper;
     }

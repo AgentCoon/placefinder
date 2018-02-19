@@ -1,4 +1,4 @@
-package com.agentcoon.placefinder.mapquest.nominatim.client;
+package com.agentcoon.placefinder.mapquest.client.nominatim;
 
 import com.agentcoon.placefinder.mapquest.client.MapQuestConfiguration;
 import com.fasterxml.jackson.databind.ObjectMapper;

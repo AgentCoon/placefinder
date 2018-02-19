@@ -1,16 +1,16 @@
 package com.agentcoon.placefinder.app.dropwizard;
 
-import com.agentcoon.placefinder.app.dropwizard.configuration.FacebookConfiguration;
 import com.agentcoon.placefinder.app.dropwizard.configuration.PlacefinderConfiguration;
 import com.agentcoon.placefinder.domain.facebook.FacebookGateway;
-import com.agentcoon.placefinder.infrastructure.facebook.FacebookApiGraphClient;
+import com.agentcoon.placefinder.infrastructure.facebook.FacebookClientGateway;
+import com.agentoon.placefinder.facebook.client.FacebookApiClient;
+import com.agentoon.placefinder.facebook.client.FacebookApiGateway;
+import com.agentoon.placefinder.facebook.client.FacebookClientFactory;
+import com.agentoon.placefinder.facebook.client.FacebookConfiguration;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.inject.AbstractModule;
 import com.google.inject.Provides;
 import com.google.inject.Scopes;
-import facebook4j.Facebook;
-import facebook4j.FacebookFactory;
-import facebook4j.conf.ConfigurationBuilder;
-import io.dropwizard.setup.Environment;
 
 import javax.inject.Singleton;
 
@@ -18,23 +18,41 @@ public class FacebookGraphApiAccessModule extends AbstractModule {
 
     @Provides
     @Singleton
-    public Facebook prepareFacebook(Environment environment, PlacefinderConfiguration configuration) {
+    FacebookApiGateway prepareFacebookClient(PlacefinderConfiguration config, ObjectMapper objectMapper) {
 
-        FacebookConfiguration facebookConfiguration = configuration.getFacebookConfiguration();
+        FacebookConfiguration facebookConfiguration = config.getFacebookConfiguration();
 
-        ConfigurationBuilder cb = new ConfigurationBuilder();
-        cb.setOAuthAppId(facebookConfiguration.getAppId())
-                .setOAuthAppSecret(facebookConfiguration.getAppSecret())
-                .setOAuthAccessToken(facebookConfiguration.getAccessToken());
+        FacebookApiClient facebookApiClient = new FacebookClientFactory(objectMapper)
+                .create(facebookConfiguration);
 
-        FacebookFactory ff = new FacebookFactory(cb.build());
-
-        return ff.getInstance();
+        return new FacebookApiGateway(facebookApiClient, facebookConfiguration.getAccessToken());
     }
+
+//    @Provides
+//    @Singleton
+//    public Facebook prepareFacebook(Environment environment, PlacefinderConfiguration configuration) throws FacebookException, FacebookClientException {
+//
+//        FacebookConfiguration facebookConfiguration = configuration.getFacebookConfiguration();
+//
+//        ConfigurationBuilder cb = new ConfigurationBuilder();
+//        cb
+//                .setOAuthAppId(facebookConfiguration.getAppId())
+//                .setOAuthAppSecret(facebookConfiguration.getAppSecret())
+//                .setOAuthAccessToken(facebookConfiguration.getAppId() + "|" +
+//                facebookConfiguration.getAppSecret());
+//
+//        FacebookFactory ff = new FacebookFactory(cb.build());
+//
+//        Facebook f = ff.getInstance();
+//        //f.extendTokenExpiration();
+//
+//        return f;
+//
+//        //return ff.getInstance();
+//    }
 
     @Override
     protected void configure() {
-
-        bind(FacebookGateway.class).to(FacebookApiGraphClient.class).in(Scopes.SINGLETON);
+        bind(FacebookGateway.class).to(FacebookClientGateway.class).in(Scopes.SINGLETON);
     }
 }

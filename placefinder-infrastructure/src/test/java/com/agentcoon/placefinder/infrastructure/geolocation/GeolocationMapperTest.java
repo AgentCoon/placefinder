@@ -1,15 +1,14 @@
-package com.agentcoon.infrastructure.geolocation;
+package com.agentcoon.placefinder.infrastructure.geolocation;
 
 import com.agentcoon.placefinder.domain.geolocation.BoundingBox;
 import com.agentcoon.placefinder.domain.geolocation.Location;
-import com.agentcoon.placefinder.infrastructure.geolocation.GeolocationMapper;
-import com.agentcoon.placefinder.mapquest.nominatim.client.NominatimResponseDto;
+import com.agentcoon.placefinder.mapquest.client.nominatim.NominatimResponseDto;
 import org.junit.Test;
 
 import java.util.Arrays;
 import java.util.List;
 
-import static com.agentcoon.placefinder.mapquest.nominatim.client.NominatimResponseDto.Builder.aNominatimResponse;
+import static com.agentcoon.placefinder.mapquest.client.nominatim.NominatimResponseDto.Builder.aNominatimResponse;
 import static org.junit.Assert.assertEquals;
 
 public class GeolocationMapperTest {

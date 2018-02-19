@@ -1,7 +1,7 @@
 package com.agentcoon.placefinder.infrastructure.geolocation;
 
 import com.agentcoon.placefinder.domain.geolocation.Location;
-import com.agentcoon.placefinder.mapquest.nominatim.client.NominatimResponseDto;
+import com.agentcoon.placefinder.mapquest.client.nominatim.NominatimResponseDto;
 
 import java.util.List;
 

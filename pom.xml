@@ -168,6 +168,8 @@
         <module>placefinder-domain</module>
         <module>placefinder-mapquest-client</module>
         <module>placefinder-infrastructure</module>
+        <module>placefinder-facebook-client</module>
+        <module>placefinder-acceptance-test</module>
     </modules>
 
 </project>

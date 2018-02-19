@@ -3,9 +3,9 @@ package com.agentcoon.placefinder.infrastructure.geolocation;
 import com.agentcoon.placefinder.domain.geolocation.GeoLocationException;
 import com.agentcoon.placefinder.domain.geolocation.GeoLocationProvider;
 import com.agentcoon.placefinder.domain.geolocation.Location;
-import com.agentcoon.placefinder.mapquest.client.GeoLocationClientException;
-import com.agentcoon.placefinder.mapquest.nominatim.client.NominatimGateway;
-import com.agentcoon.placefinder.mapquest.nominatim.client.NominatimResponseDto;
+import com.agentcoon.placefinder.mapquest.client.exception.GeoLocationClientException;
+import com.agentcoon.placefinder.mapquest.client.nominatim.NominatimGateway;
+import com.agentcoon.placefinder.mapquest.client.nominatim.NominatimResponseDto;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

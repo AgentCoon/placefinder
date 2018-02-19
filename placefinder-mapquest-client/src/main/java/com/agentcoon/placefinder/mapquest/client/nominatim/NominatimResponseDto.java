@@ -1,4 +1,4 @@
-package com.agentcoon.placefinder.mapquest.nominatim.client;
+package com.agentcoon.placefinder.mapquest.client.nominatim;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
