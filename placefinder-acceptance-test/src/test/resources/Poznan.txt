@@ -1,0 +1,78 @@
+[
+  {
+    "place_id": "179884808",
+    "licence": "Data © OpenStreetMap contributors, ODbL 1.0. https://www.openstreetmap.org/copyright",
+    "osm_type": "relation",
+    "osm_id": "165941",
+    "boundingbox": [
+      "52.2919238",
+      "52.5093282",
+      "16.7315878",
+      "17.0717011"
+    ],
+    "lat": "52.4082663",
+    "lon": "16.9335199",
+    "display_name": "Poznań, Greater Poland Voivodeship, Poland",
+    "class": "place",
+    "type": "city",
+    "importance": 0.27142301605745,
+    "icon": "https://nominatim.openstreetmap.org/images/mapicons/poi_place_city.p.20.png"
+  },
+  {
+    "place_id": "179539438",
+    "licence": "Data © OpenStreetMap contributors, ODbL 1.0. https://www.openstreetmap.org/copyright",
+    "osm_type": "relation",
+    "osm_id": "2989158",
+    "boundingbox": [
+      "52.2919238",
+      "52.5093282",
+      "16.7315878",
+      "17.0717011"
+    ],
+    "lat": "52.4006522",
+    "lon": "16.9197520238885",
+    "display_name": "Poznań, Greater Poland Voivodeship, Poland",
+    "class": "boundary",
+    "type": "administrative",
+    "importance": 0.27142301605745,
+    "icon": "https://nominatim.openstreetmap.org/images/mapicons/poi_boundary_administrative.p.20.png"
+  },
+  {
+    "place_id": "41524063",
+    "licence": "Data © OpenStreetMap contributors, ODbL 1.0. https://www.openstreetmap.org/copyright",
+    "osm_type": "node",
+    "osm_id": "3009742000",
+    "boundingbox": [
+      "49.9516667",
+      "49.9916667",
+      "19.0697222",
+      "19.1097222"
+    ],
+    "lat": "49.9716667",
+    "lon": "19.0897222",
+    "display_name": "Poznań, gmina Miedźna, powiat pszczyński, Silesian Voivodeship, 43-227, Poland",
+    "class": "place",
+    "type": "hamlet",
+    "importance": 0.16875,
+    "icon": "https://nominatim.openstreetmap.org/images/mapicons/poi_place_village.p.20.png"
+  },
+  {
+    "place_id": "3476998",
+    "licence": "Data © OpenStreetMap contributors, ODbL 1.0. https://www.openstreetmap.org/copyright",
+    "osm_type": "node",
+    "osm_id": "362654889",
+    "boundingbox": [
+      "51.6568198",
+      "51.6968198",
+      "22.2845472",
+      "22.3245472"
+    ],
+    "lat": "51.6768198",
+    "lon": "22.3045472",
+    "display_name": "Poznań, gmina Serokomla, powiat łukowski, Lublin Voivodeship, 21-413, Poland",
+    "class": "place",
+    "type": "village",
+    "importance": 0.15401693833236,
+    "icon": "https://nominatim.openstreetmap.org/images/mapicons/poi_place_village.p.20.png"
+  }
+]

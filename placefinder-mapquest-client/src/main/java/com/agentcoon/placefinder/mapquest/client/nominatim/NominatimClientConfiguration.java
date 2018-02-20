@@ -1,11 +1,11 @@
-package com.agentcoon.placefinder.mapquest.client;
+package com.agentcoon.placefinder.mapquest.client.nominatim;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import javax.validation.constraints.NotNull;
 
-public class MapQuestConfiguration {
+public class NominatimClientConfiguration {
 
     @NotNull
     private final String url;
@@ -14,7 +14,7 @@ public class MapQuestConfiguration {
     private final String appKey;
 
     @JsonCreator
-    public MapQuestConfiguration(@JsonProperty("url") String url, @JsonProperty("appKey") String appKey) {
+    public NominatimClientConfiguration(@JsonProperty("url") String url, @JsonProperty("appKey") String appKey) {
         this.url = url;
         this.appKey = appKey;
     }

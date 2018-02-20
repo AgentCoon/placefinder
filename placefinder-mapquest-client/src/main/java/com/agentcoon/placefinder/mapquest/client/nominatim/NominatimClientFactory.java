@@ -1,6 +1,5 @@
 package com.agentcoon.placefinder.mapquest.client.nominatim;
 
-import com.agentcoon.placefinder.mapquest.client.MapQuestConfiguration;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import okhttp3.OkHttpClient;
 import retrofit2.Retrofit;
@@ -16,11 +15,11 @@ public class NominatimClientFactory {
         this.objectMapper = objectMapper;
     }
 
-    public NominatimClient create(MapQuestConfiguration config) {
+    public NominatimClient create(NominatimClientConfiguration config) {
         return getRetrofitInstance(config).create(NominatimClient.class);
     }
 
-    private Retrofit getRetrofitInstance(MapQuestConfiguration config) {
+    private Retrofit getRetrofitInstance(NominatimClientConfiguration config) {
         return new Retrofit.Builder()
                 .client(getHttpClient())
                 .baseUrl(config.getUrl())

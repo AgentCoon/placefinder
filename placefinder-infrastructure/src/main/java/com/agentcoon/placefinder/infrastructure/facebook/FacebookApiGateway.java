@@ -4,15 +4,11 @@ import com.agentcoon.placefinder.domain.facebook.FacebookGateway;
 import com.agentcoon.placefinder.domain.facebook.FacebookGatewayException;
 import com.agentcoon.placefinder.domain.placefinder.FacebookPlace;
 import facebook4j.FacebookException;
-import facebook4j.Place;
-import facebook4j.ResponseList;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import javax.inject.Inject;
 import java.util.List;
-
-import static java.util.stream.Collectors.toList;
 
 public class FacebookApiGateway implements FacebookGateway {
     private final Logger logger = LoggerFactory.getLogger(getClass());
@@ -20,12 +16,10 @@ public class FacebookApiGateway implements FacebookGateway {
     private static final String[] PLACE_SEARCH_FIELDS = {"location", "name"};
 
     private final FacebookFacade facebook;
-    private final PlaceMapper mapper;
 
     @Inject
-    public FacebookApiGateway(FacebookFacade facebook, PlaceMapper mapper) {
+    public FacebookApiGateway(FacebookFacade facebook) {
         this.facebook = facebook;
-        this.mapper = mapper;
     }
 
     public List<FacebookPlace> searchPlaces(Float latitude, Float longitude, Integer distance, String searchString) throws FacebookGatewayException {
@@ -34,10 +28,7 @@ public class FacebookApiGateway implements FacebookGateway {
                 "longitude: {}, distance: {}, search string: {}", latitude, longitude, distance, searchString);
 
         try {
-            ResponseList<Place> places = facebook.searchPlaces(latitude, longitude, distance, searchString, PLACE_SEARCH_FIELDS);
-
-            return places.stream().map(mapper::from).collect(toList());
-
+            return facebook.searchPlaces(latitude, longitude, distance, searchString, PLACE_SEARCH_FIELDS);
         } catch (FacebookException e) {
             logger.error("An exception occurred while getting places from Facebook for latitude: {}, " +
                     "longitude: {}, distance: {}, search string: {}", latitude, longitude, distance, searchString, e);

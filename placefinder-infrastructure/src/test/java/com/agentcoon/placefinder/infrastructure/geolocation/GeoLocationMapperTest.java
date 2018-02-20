@@ -2,18 +2,18 @@ package com.agentcoon.placefinder.infrastructure.geolocation;
 
 import com.agentcoon.placefinder.domain.geolocation.BoundingBox;
 import com.agentcoon.placefinder.domain.geolocation.Location;
-import com.agentcoon.placefinder.mapquest.client.nominatim.NominatimResponseDto;
+import com.agentcoon.placefinder.mapquest.client.GeoLocationResponseDto;
 import org.junit.Test;
 
 import java.util.Arrays;
 import java.util.List;
 
-import static com.agentcoon.placefinder.mapquest.client.nominatim.NominatimResponseDto.Builder.aNominatimResponse;
+import static com.agentcoon.placefinder.mapquest.client.GeoLocationResponseDto.Builder.aNominatimResponse;
 import static org.junit.Assert.assertEquals;
 
-public class GeolocationMapperTest {
+public class GeoLocationMapperTest {
 
-    private GeolocationMapper mapper = new GeolocationMapper();
+    private GeoLocationMapper mapper = new GeoLocationMapper();
 
     @Test
     public void fromDto() {
@@ -25,7 +25,7 @@ public class GeolocationMapperTest {
         Float maxLatitude = 52.5093282f;
         String displayName = "Paris, France";
 
-        NominatimResponseDto dto = aNominatimResponse()
+        GeoLocationResponseDto dto = aNominatimResponse()
                 .withLongitude(longitude)
                 .withLatitude(latitude)
                 .withBoundingBox(Arrays.asList(minLatitude, maxLatitude, minLongitude, maxLongitude))

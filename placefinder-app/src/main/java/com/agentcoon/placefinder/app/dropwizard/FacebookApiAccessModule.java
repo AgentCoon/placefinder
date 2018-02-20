@@ -23,6 +23,7 @@ public class FacebookApiAccessModule extends AbstractModule {
         FacebookConfiguration facebookConfiguration = configuration.getFacebookConfiguration();
 
         ConfigurationBuilder cb = new ConfigurationBuilder()
+                .setRestBaseURL(facebookConfiguration.getUrl())
                 .setOAuthAppId(facebookConfiguration.getAppId())
                 .setOAuthAppSecret(facebookConfiguration.getAppSecret())
                 .setOAuthAccessToken(facebookConfiguration.getAccessToken());

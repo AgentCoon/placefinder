@@ -6,10 +6,11 @@ logging:
 allowCORS: true
 
 facebookConfiguration:
+  url: http://localhost:8589/
   appId: facebook_app_id
   appSecret: facebook_app_secret
 
-mapQuestConfiguration:
+nominatimClientConfiguration:
   appKey: mapQuest_app_key
   url: http://localhost:8581/
 

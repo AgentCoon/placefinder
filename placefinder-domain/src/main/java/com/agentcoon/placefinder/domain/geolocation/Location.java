@@ -1,10 +1,10 @@
 package com.agentcoon.placefinder.domain.geolocation;
 
-import static org.apache.commons.lang3.math.NumberUtils.max;
+import static java.lang.Math.max;
 
 public class Location {
 
-    private static final int EARTH_RADIUS_IN_M = 6371000;
+    private static final Integer DEFAULT_RADIUS_IN_M = 3000;
 
     private final Float latitude;
     private final Float longitude;
@@ -36,27 +36,13 @@ public class Location {
 
     public Integer calculateRadius() {
 
-        Double a = distance(latitude, longitude, boundingBox.getMaxLatitude(), boundingBox.getMaxLongitude());
-        Double b = distance(latitude, longitude, boundingBox.getMaxLatitude(), boundingBox.getMinLongitude());
-        Double c = distance(latitude, longitude, boundingBox.getMinLatitude(), boundingBox.getMaxLongitude());
-        Double d = distance(latitude, longitude, boundingBox.getMinLatitude(), boundingBox.getMinLongitude());
+        Integer maxRadius = DEFAULT_RADIUS_IN_M;
 
-        Double maxRadius = max(a, b, c, d, 1000);
+        if(boundingBox != null) {
+             maxRadius = max(boundingBox.calculateFarthestVertexFrom(latitude, longitude), DEFAULT_RADIUS_IN_M);
+        }
 
-        return maxRadius.intValue();
-    }
-
-    private double distance(Float lat1, Float lon1, Float lat2, Float lon2) {
-        double dLat = deg2rad(lat2-lat1);
-        double dLon = deg2rad(lon2-lon1);
-        double a = Math.sin(dLat/2) * Math.sin(dLat/2) + Math.cos(deg2rad(lat1)) * Math.cos(deg2rad(lat2)) *
-                Math.sin(dLon/2) * Math.sin(dLon/2);
-        double c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
-        return EARTH_RADIUS_IN_M * c;
-    }
-
-    private double deg2rad(double deg) {
-        return (deg * Math.PI / 180.0);
+        return maxRadius;
     }
 
     public static final class Builder {

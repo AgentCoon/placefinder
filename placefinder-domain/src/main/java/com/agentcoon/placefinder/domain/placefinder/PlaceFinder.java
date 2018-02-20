@@ -14,10 +14,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import static java.util.stream.Collectors.toList;
-
 public class PlaceFinder {
-
     private final Logger logger = LoggerFactory.getLogger(getClass());
 
     private final GeoLocationService geoLocationService;
@@ -40,13 +37,8 @@ public class PlaceFinder {
 
         Map<String, List<FacebookPlace>> placesPerLocation = new HashMap<>();
 
-        locations.forEach(location -> {
-            List<FacebookPlace> foundPlaces = getFacebookPlacesForLocation(location, searchString);
-
-            placesPerLocation.put(location.getDisplayName(), filterPlacesInNearbyCities(foundPlaces, city));
-        }
+        locations.forEach(location -> placesPerLocation.put(location.getDisplayName(), getFacebookPlacesForLocation(location, searchString))
     );
-
         return placesPerLocation;
     }
 
@@ -60,9 +52,5 @@ public class PlaceFinder {
             logger.warn("An exception occurred while searching for {} places in {}.", searchString, location.getDisplayName());
         }
         return places;
-    }
-
-    private List<FacebookPlace> filterPlacesInNearbyCities(List<FacebookPlace> places, String city) {
-        return places.stream().filter(e -> e.getCity().equalsIgnoreCase(city)).collect(toList());
     }
 }

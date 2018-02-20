@@ -1,19 +1,25 @@
 package com.agentcoon.placefinder.infrastructure.facebook;
 
+import com.agentcoon.placefinder.domain.placefinder.FacebookPlace;
 import facebook4j.*;
 
 import javax.inject.Inject;
+import java.util.List;
+
+import static java.util.stream.Collectors.toList;
 
 public class FacebookFacade {
 
     private final Facebook facebook;
+    private final PlaceMapper mapper;
 
     @Inject
-    public FacebookFacade(Facebook facebook) {
+    public FacebookFacade(Facebook facebook, PlaceMapper mapper) {
         this.facebook = facebook;
+        this.mapper = mapper;
     }
 
-    public ResponseList<Place> searchPlaces(Float latitude, Float longitude, Integer distance, String searchString, String[] fields) throws FacebookException {
+    public List<FacebookPlace> searchPlaces(Float latitude, Float longitude, Integer distance, String searchString, String[] fields) throws FacebookException {
 
        GeoLocation center = new GeoLocation(latitude, longitude);
        Reading reading = new Reading().fields(fields);
@@ -22,7 +28,7 @@ public class FacebookFacade {
 
        appendPlacesFromNextPages(places);
 
-       return places;
+       return places.stream().map(mapper::from).collect(toList());
     }
 
     private void appendPlacesFromNextPages(ResponseList<Place> places) throws FacebookException {

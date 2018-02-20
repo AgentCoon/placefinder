@@ -12,7 +12,6 @@
     <properties>
         <!-- Project -->
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <java.version>1.8</java.version>
 
         <!-- Plugins -->
@@ -24,39 +23,20 @@
         <maven-surefire-plugin.version>2.18.1</maven-surefire-plugin.version>
         <maven-failsafe-plugin.version>2.18.1</maven-failsafe-plugin.version>
         <maven-shade-plugin.version>2.4.3</maven-shade-plugin.version>
-        <jacoco-maven-plugin.version>0.7.5.201505241946</jacoco-maven-plugin.version>
-        <maven-jar-plugin.version>2.6</maven-jar-plugin.version>
-        <antlr4-maven-plugin.version>4.5.3</antlr4-maven-plugin.version>
 
         <!-- Dependencies -->
-        <metrics-core.version>3.2.4</metrics-core.version>
         <dropwizard.version>1.1.3</dropwizard.version>
-        <dropwizard-jdbi.version>1.1.3</dropwizard-jdbi.version>
-        <dropwizard-flyway.version>1.1.0-1</dropwizard-flyway.version>
         <dropwizard-guice.version>1.0.6.0</dropwizard-guice.version>
-        <postgresql.version>9.4.1207</postgresql.version>
         <junit.version>4.12</junit.version>
         <hamcrest.version>1.3</hamcrest.version>
         <mockito.version>1.10.19</mockito.version>
-        <postgresql-embedded.version>1.7</postgresql-embedded.version>
-        <logback.version>1.2.1</logback.version>
         <org.slf4j.version>1.7.21</org.slf4j.version>
-        <log4j.version>2.7</log4j.version>
-        <com.google.guava.version>21.0</com.google.guava.version>
-        <guava-retrying.version>2.0.0</guava-retrying.version>
         <javax.inject.version>1</javax.inject.version>
         <jackson.version>2.8.7</jackson.version>
         <retrofit.version>2.2.0</retrofit.version>
-        <commons-lang3.version>3.4</commons-lang3.version>
-        <commons-collections4.version>4.1</commons-collections4.version>
-        <commons-io.version>2.5</commons-io.version>
-        <commons-codec.version>1.10</commons-codec.version>
-        <elasticsearch.version>5.5.2</elasticsearch.version>
-        <jest.version>5.3.2</jest.version>
         <rs-api.version>2.0.1</rs-api.version>
-        <antlr4.version>4.5.3</antlr4.version>
-        <jsonassert.version>1.4.0</jsonassert.version>
-        <json-path.version>2.2.0</json-path.version>
+        <facebook4j-core.version>[2.4,)</facebook4j-core.version>
+        <com.tngtech.java.version>1.10.0</com.tngtech.java.version>
     </properties>
 
     <dependencies>
@@ -168,7 +148,6 @@
         <module>placefinder-domain</module>
         <module>placefinder-mapquest-client</module>
         <module>placefinder-infrastructure</module>
-        <module>placefinder-facebook-client</module>
         <module>placefinder-acceptance-test</module>
     </modules>
 

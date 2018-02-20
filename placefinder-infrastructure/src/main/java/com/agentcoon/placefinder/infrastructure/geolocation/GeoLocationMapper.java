@@ -1,7 +1,7 @@
 package com.agentcoon.placefinder.infrastructure.geolocation;
 
 import com.agentcoon.placefinder.domain.geolocation.Location;
-import com.agentcoon.placefinder.mapquest.client.nominatim.NominatimResponseDto;
+import com.agentcoon.placefinder.mapquest.client.GeoLocationResponseDto;
 
 import java.util.List;
 
@@ -9,13 +9,13 @@ import static com.agentcoon.placefinder.domain.geolocation.BoundingBox.Builder.a
 import static com.agentcoon.placefinder.domain.geolocation.Location.Builder.aLocation;
 import static java.util.stream.Collectors.toList;
 
-public class GeolocationMapper {
+public class GeoLocationMapper {
 
-    public List<Location> from(List<NominatimResponseDto> dtos) {
+    public List<Location> from(List<GeoLocationResponseDto> dtos) {
         return dtos.stream().map(this::from).collect(toList());
     }
 
-    private Location from(NominatimResponseDto dto) {
+    private Location from(GeoLocationResponseDto dto) {
 
         List<Float> boundingBox = dto.getBoundingBox();
 

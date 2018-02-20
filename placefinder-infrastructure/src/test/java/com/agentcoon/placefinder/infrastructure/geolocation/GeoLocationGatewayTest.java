@@ -2,9 +2,9 @@ package com.agentcoon.placefinder.infrastructure.geolocation;
 
 import com.agentcoon.placefinder.domain.geolocation.GeoLocationException;
 import com.agentcoon.placefinder.domain.geolocation.Location;
+import com.agentcoon.placefinder.mapquest.client.GeoLocationClient;
+import com.agentcoon.placefinder.mapquest.client.GeoLocationResponseDto;
 import com.agentcoon.placefinder.mapquest.client.exception.GeoLocationClientException;
-import com.agentcoon.placefinder.mapquest.client.nominatim.NominatimGateway;
-import com.agentcoon.placefinder.mapquest.client.nominatim.NominatimResponseDto;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -17,17 +17,17 @@ import static org.mockito.Mockito.*;
 
 public class GeoLocationGatewayTest {
 
-    private NominatimGateway nominatimGateway;
-    private GeolocationMapper geolocationMapper;
+    private GeoLocationClient geoLocationClient;
+    private GeoLocationMapper geoLocationMapper;
 
     private GeoLocationGateway geoLocationGateway;
 
     @Before
     public void setUp() {
-        nominatimGateway = mock(NominatimGateway.class);
-        geolocationMapper = mock(GeolocationMapper.class);
+        geoLocationClient = mock(GeoLocationClient.class);
+        geoLocationMapper = mock(GeoLocationMapper.class);
 
-        geoLocationGateway = new GeoLocationGateway(nominatimGateway, geolocationMapper);
+        geoLocationGateway = new GeoLocationGateway(geoLocationClient, geoLocationMapper);
     }
 
     @Test
@@ -35,11 +35,11 @@ public class GeoLocationGatewayTest {
         String country = "Spain";
         String city = "Barcelona";
 
-        NominatimResponseDto nominatimResponse = new NominatimResponseDto.Builder().build();
+        GeoLocationResponseDto nominatimResponse = new GeoLocationResponseDto.Builder().build();
 
         Location location = aLocation().build();
-        when(nominatimGateway.findLocations(country, city)).thenReturn(Collections.singletonList(nominatimResponse));
-        when(geolocationMapper.from(Collections.singletonList(nominatimResponse))).thenReturn(Collections.singletonList(location));
+        when(geoLocationClient.findCities(country, city)).thenReturn(Collections.singletonList(nominatimResponse));
+        when(geoLocationMapper.from(Collections.singletonList(nominatimResponse))).thenReturn(Collections.singletonList(location));
 
         List<Location> result = geoLocationGateway.findLocations(country, city);
         assertEquals(location, result.get(0));
@@ -51,7 +51,7 @@ public class GeoLocationGatewayTest {
         String country = "Spain";
         String city = "Barcelona";
 
-        doThrow(GeoLocationClientException.class).when(nominatimGateway).findLocations(country, city);
+        doThrow(GeoLocationClientException.class).when(geoLocationClient).findCities(country, city);
 
         geoLocationGateway.findLocations(country, city);
     }

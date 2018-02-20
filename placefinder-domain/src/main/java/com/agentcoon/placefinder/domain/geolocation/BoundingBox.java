@@ -1,6 +1,10 @@
 package com.agentcoon.placefinder.domain.geolocation;
 
+import static org.apache.commons.lang3.math.NumberUtils.max;
+
 public class BoundingBox {
+
+    private static final int EARTH_RADIUS_IN_M = 6371000;
 
     private final Float minLongitude;
     private final Float minLatitude;
@@ -28,6 +32,32 @@ public class BoundingBox {
 
     public Float getMaxLatitude() {
         return maxLatitude;
+    }
+
+    public Integer calculateFarthestVertexFrom(Float latitude, Float longitude) {
+
+        Double a = distance(latitude, longitude, maxLatitude, maxLongitude);
+        Double b = distance(latitude, longitude, maxLatitude, minLongitude);
+        Double c = distance(latitude, longitude, minLatitude, maxLongitude);
+        Double d = distance(latitude, longitude, minLatitude, minLongitude);
+
+        Double maxRadius = max(a, b, c, d);
+
+        return maxRadius.intValue();
+    }
+
+    private double distance(Float lat1, Float lon1, Float lat2, Float lon2) {
+        double dLat = deg2rad(lat2-lat1);
+        double dLon = deg2rad(lon2-lon1);
+        double a = Math.sin(dLat/2) * Math.sin(dLat/2) + Math.cos(deg2rad(lat1)) * Math.cos(deg2rad(lat2)) *
+                Math.sin(dLon/2) * Math.sin(dLon/2);
+        double c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
+
+        return EARTH_RADIUS_IN_M * c;
+    }
+
+    private double deg2rad(double deg) {
+        return (deg * Math.PI / 180.0);
     }
 
     public static final class Builder {

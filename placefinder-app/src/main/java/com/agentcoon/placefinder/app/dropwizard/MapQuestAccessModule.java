@@ -3,8 +3,9 @@ package com.agentcoon.placefinder.app.dropwizard;
 import com.agentcoon.placefinder.app.dropwizard.configuration.PlacefinderConfiguration;
 import com.agentcoon.placefinder.domain.geolocation.GeoLocationProvider;
 import com.agentcoon.placefinder.infrastructure.geolocation.GeoLocationGateway;
-import com.agentcoon.placefinder.mapquest.client.MapQuestConfiguration;
+import com.agentcoon.placefinder.mapquest.client.GeoLocationClient;
 import com.agentcoon.placefinder.mapquest.client.nominatim.NominatimClient;
+import com.agentcoon.placefinder.mapquest.client.nominatim.NominatimClientConfiguration;
 import com.agentcoon.placefinder.mapquest.client.nominatim.NominatimClientFactory;
 import com.agentcoon.placefinder.mapquest.client.nominatim.NominatimGateway;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -19,16 +20,17 @@ public class MapQuestAccessModule extends AbstractModule {
     @Singleton
     NominatimGateway nominatimGateway(PlacefinderConfiguration config, ObjectMapper objectMapper) {
 
-        MapQuestConfiguration mapQuestConfiguration = config.getMapQuestConfiguration();
+        NominatimClientConfiguration nominatimClientConfiguration = config.getNominatimClientConfiguration();
 
         NominatimClient nominatimClient = new NominatimClientFactory(objectMapper)
-                .create(mapQuestConfiguration);
+                .create(nominatimClientConfiguration);
 
-        return new NominatimGateway(nominatimClient, mapQuestConfiguration.getAppKey());
+        return new NominatimGateway(nominatimClient, nominatimClientConfiguration.getAppKey());
     }
 
     @Override
     protected void configure() {
         bind(GeoLocationProvider.class).to(GeoLocationGateway.class).in(Scopes.SINGLETON);
+        bind(GeoLocationClient.class).to(NominatimGateway.class).in(Scopes.SINGLETON);
     }
 }

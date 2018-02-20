@@ -2,9 +2,7 @@ package com.agentcoon.placefinder.infrastructure.facebook;
 
 import com.agentcoon.placefinder.domain.facebook.FacebookGatewayException;
 import com.agentcoon.placefinder.domain.placefinder.FacebookPlace;
-import com.agentoon.placefinder.facebook.client.FacebookApiGateway;
-import com.agentoon.placefinder.facebook.client.api.FacebookPlaceDto;
-import com.agentoon.placefinder.facebook.client.exception.FacebookClientException;
+import facebook4j.FacebookException;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -17,35 +15,45 @@ import static org.mockito.Mockito.*;
 
 public class FacebookClientGatewayTest {
 
-    private PlaceMapper mapper;
-    private FacebookApiGateway facebookApiGateway;
+    private FacebookFacade facebook;
 
-    private FacebookClientGateway facebookClientGateway;
+    private FacebookApiGateway facebookApiGateway;
 
     @Before
     public void setUp() {
-        mapper = mock(PlaceMapper.class);
-        facebookApiGateway = mock(FacebookApiGateway.class);
+        facebook = mock(FacebookFacade.class);
 
-        facebookClientGateway = new FacebookClientGateway(facebookApiGateway, mapper);
+        facebookApiGateway = new FacebookApiGateway(facebook);
     }
 
     @Test
-    public void searchPlaces() throws FacebookGatewayException, FacebookClientException {
+    public void searchPlaces() throws FacebookGatewayException, FacebookException {
         Float latitude = 15.45f;
         Float longitude = -15.78f;
         Integer distance = 1255;
         String searchString = "coffee";
+        String[] fields = {"location", "name"};
 
-        FacebookPlaceDto facebookPlaceDto = new FacebookPlaceDto();
         FacebookPlace facebookPlace = aFacebookPlace().build();
 
-        when(facebookApiGateway.searchPlaces(searchString, latitude, longitude, distance)).thenReturn(Collections.singletonList(facebookPlaceDto));
-        when(mapper.from(facebookPlaceDto)).thenReturn(facebookPlace);
+        when(facebook.searchPlaces(latitude, longitude, distance, searchString, fields)).thenReturn(Collections.singletonList(facebookPlace));
 
-        List<FacebookPlace> places = facebookClientGateway.search(latitude, longitude, distance, searchString);
+        List<FacebookPlace> places = facebookApiGateway.searchPlaces(latitude, longitude, distance, searchString);
         assertEquals(1, places.size());
-        verify(facebookApiGateway).searchPlaces(searchString, latitude, longitude, distance);
-        verify(mapper).from(facebookPlaceDto);
+        verify(facebook).searchPlaces(latitude, longitude, distance, searchString, fields);
+    }
+
+    @Test
+            (expected=FacebookGatewayException.class)
+    public void searchPlacesWhenError() throws FacebookException, FacebookGatewayException {
+        Float latitude = 15.45f;
+        Float longitude = -15.78f;
+        Integer distance = 1255;
+        String searchString = "coffee";
+        String[] fields = {"location", "name"};
+
+        doThrow(FacebookException.class).when(facebook).searchPlaces(latitude, longitude, distance, searchString, fields);
+
+        facebookApiGateway.searchPlaces(latitude, longitude, distance, searchString);
     }
 }

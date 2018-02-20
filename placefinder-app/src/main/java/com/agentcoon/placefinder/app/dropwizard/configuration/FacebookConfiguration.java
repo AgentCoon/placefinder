@@ -8,18 +8,25 @@ import javax.validation.constraints.NotNull;
 public class FacebookConfiguration {
 
     @NotNull
+    private String url;
+
+    @NotNull
     private String appId;
 
     @NotNull
     private String appSecret;
 
     @JsonCreator
-    public FacebookConfiguration(@JsonProperty("appId") String appId,
+    public FacebookConfiguration(@JsonProperty("url") String url, @JsonProperty("appId") String appId,
                                  @JsonProperty("appSecret") String appSecret) {
+        this.url = url;
         this.appId = appId;
         this.appSecret = appSecret;
     }
 
+    public String getUrl() {
+        return url;
+    }
 
     public String getAppId() {
         return appId;

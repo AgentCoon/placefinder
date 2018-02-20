@@ -6,12 +6,13 @@ logging:
 allowCORS: true
 
 facebookConfiguration:
+url: {{ facebookConfiguration.url }}
   appId: {{ facebookConfiguration.appId }}
   appSecret: {{ facebookConfiguration.appSecret }}
 
-mapQuestConfiguration:
-  appKey: {{ mapQuestConfiguration.appKey }}
-  url: {{ mapQuestConfiguration.url }}
+nominatimClientConfiguration:
+  appKey: {{ nominatimClientConfiguration.appKey }}
+  url: {{ nominatimClientConfiguration.url }}
 
 server:
   applicationConnectors:

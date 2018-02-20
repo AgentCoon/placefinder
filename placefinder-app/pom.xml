@@ -19,12 +19,7 @@
         </dependency>
         <dependency>
             <groupId>com.agentcoon</groupId>
-            <artifactId>placefinder-domain</artifactId>
-            <version>1.0-SNAPSHOT</version>
-        </dependency>
-        <dependency>
-            <groupId>com.agentcoon</groupId>
-            <artifactId>placefinder-mapquest-client</artifactId>
+            <artifactId>placefinder-infrastructure</artifactId>
             <version>1.0-SNAPSHOT</version>
         </dependency>
         <dependency>
@@ -41,11 +36,6 @@
             <groupId>com.hubspot.dropwizard</groupId>
             <artifactId>dropwizard-guice</artifactId>
             <version>${dropwizard-guice.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>com.agentcoon</groupId>
-            <artifactId>placefinder-infrastructure</artifactId>
-            <version>1.0-SNAPSHOT</version>
         </dependency>
     </dependencies>
     <build>
