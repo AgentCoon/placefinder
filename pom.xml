@@ -35,6 +35,7 @@
         <jackson.version>2.8.7</jackson.version>
         <retrofit.version>2.2.0</retrofit.version>
         <rs-api.version>2.0.1</rs-api.version>
+        <com.google.guava.version>21.0</com.google.guava.version>
         <facebook4j-core.version>[2.4,)</facebook4j-core.version>
         <com.tngtech.java.version>1.10.0</com.tngtech.java.version>
     </properties>

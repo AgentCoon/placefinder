@@ -3,6 +3,8 @@ package com.agentcoon.placefinder.infrastructure.facebook;
 import com.agentcoon.placefinder.domain.placefinder.FacebookPlace;
 import facebook4j.Place;
 
+import java.math.BigDecimal;
+
 import static com.agentcoon.placefinder.domain.placefinder.FacebookPlace.Builder.aFacebookPlace;
 
 public class PlaceMapper {
@@ -11,9 +13,13 @@ public class PlaceMapper {
         Place.Location location = place.getLocation();
 
         return aFacebookPlace()
-                .withLatitude(location.getLatitude())
-                .withLongitude(location.getLongitude())
+                .withLatitude(getAsFloat(location.getLatitude()))
+                .withLongitude(getAsFloat(location.getLongitude()))
                 .withName(place.getName())
                 .withCity(location.getCity()).build();
+    }
+
+    private Float getAsFloat(Double value) {
+        return BigDecimal.valueOf(value).floatValue();
     }
 }

@@ -1,0 +1,63 @@
+#%RAML 1.0
+title: Place Finder API
+version: v1
+documentation:
+  - title: Getting Started
+    content: |
+      # Provides
+        * Places
+baseUri: http://localhost:8080/{version}
+types:
+  place:
+    type: object
+    properties:
+      name:
+        type: string
+      longitude:
+        type: number
+      latitude:
+        type: number
+  places:
+    type: object
+    properties:
+      locationDisplayName:
+        type: integer
+      places:
+        type: array
+        items: place
+  error:
+    type: object
+    properties:
+      message:
+        type: string
+
+/{country}/{city}/{searchString}:
+  get:
+    description: Get places in the specified city.
+    responses:
+      200:
+        body:
+          application/json:
+            example: |
+                [
+                  {
+                    "locationDisplayName": "Poznań, wielkopolskie, Polska",
+                    "places": [
+                      {
+                        "name": "Egnyte Poland",
+                        "longitude": 16.94051,
+                        "latitude": 52.40472
+                      }
+                    ]
+                  }
+                ]
+      404:
+        body:
+          application/json:
+            example: |
+                { "message" : "Specified location was not found" }
+      500:
+        body:
+          application/json:
+            example: |
+                { "message" : "An error occurred" }

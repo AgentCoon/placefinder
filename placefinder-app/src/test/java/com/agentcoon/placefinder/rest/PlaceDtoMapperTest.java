@@ -21,8 +21,8 @@ public class PlaceDtoMapperTest {
     public void from() {
         String displayName = "Display name";
         String name = "Name";
-        Double latitude = 12.15d;
-        Double longitude = 57.92d;
+        Float latitude = 12.15f;
+        Float longitude = 57.92f;
 
         FacebookPlace facebookPlace = aFacebookPlace()
                 .withName(name)

@@ -5,6 +5,7 @@ import com.agentcoon.placefinder.app.dropwizard.configuration.PlacefinderConfigu
 import com.google.inject.Stage;
 import com.hubspot.dropwizard.guice.GuiceBundle;
 import io.dropwizard.Application;
+import io.dropwizard.assets.AssetsBundle;
 import io.dropwizard.setup.Bootstrap;
 import io.dropwizard.setup.Environment;
 import org.eclipse.jetty.servlets.CrossOriginFilter;
@@ -38,6 +39,12 @@ public class PlacefinderApplication extends Application<PlacefinderConfiguration
                 .build(Stage.DEVELOPMENT);
 
         bootstrap.addBundle(guiceBundle);
+
+        bootstrap.addBundle(new AssetsBundle("/raml", "/raml", null, "raml"));
+        bootstrap.addBundle(new AssetsBundle("/api/", "/api", "index.html"));
+        bootstrap.addBundle(new AssetsBundle("/api/styles", "/styles", null, "styles"));
+        bootstrap.addBundle(new AssetsBundle("/api/scripts", "/scripts", null, "scripts"));
+        bootstrap.addBundle(new AssetsBundle("/api/fonts", "/fonts", null, "fonts"));
     }
 
     @Override

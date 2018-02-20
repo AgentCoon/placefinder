@@ -4,23 +4,23 @@ import java.util.Objects;
 
 public class FacebookPlace {
 
-    private final Double latitude;
-    private final Double longitude;
+    private final Float latitude;
+    private final Float longitude;
     private final String name;
     private final String city;
 
-    private FacebookPlace(Double latitude, Double longitude, String name, String city) {
+    private FacebookPlace(Float latitude, Float longitude, String name, String city) {
         this.latitude = latitude;
         this.longitude = longitude;
         this.name = name;
         this.city = city;
     }
 
-    public Double getLatitude() {
+    public Float getLatitude() {
         return latitude;
     }
 
-    public Double getLongitude() {
+    public Float getLongitude() {
         return longitude;
     }
 
@@ -48,8 +48,8 @@ public class FacebookPlace {
     }
 
     public static final class Builder {
-        private Double latitude;
-        private Double longitude;
+        private Float latitude;
+        private Float longitude;
         private String name;
         private String city;
 
@@ -57,12 +57,12 @@ public class FacebookPlace {
             return new Builder();
         }
 
-        public Builder withLatitude(Double latitude) {
+        public Builder withLatitude(Float latitude) {
             this.latitude = latitude;
             return this;
         }
 
-        public Builder withLongitude(Double longitude) {
+        public Builder withLongitude(Float longitude) {
             this.longitude = longitude;
             return this;
         }
