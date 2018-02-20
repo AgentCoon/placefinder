@@ -1,0 +1,192 @@
+[
+  {
+    "place_id": "179324266",
+    "licence": "Data © OpenStreetMap contributors, ODbL 1.0. https://www.openstreetmap.org/copyright",
+    "osm_type": "relation",
+    "osm_id": "5396194",
+    "boundingbox": [
+      "38.7916303",
+      "38.9958524",
+      "-77.1197663",
+      "-76.909366"
+    ],
+    "lat": "38.8949549",
+    "lon": "-77.0366456",
+    "display_name": "Washington, District of Columbia, United States of America",
+    "class": "place",
+    "type": "city",
+    "importance": 0.27916419549407,
+    "icon": "https://nominatim.openstreetmap.org/images/mapicons/poi_place_city.p.20.png"
+  },
+  {
+    "place_id": "177881365",
+    "licence": "Data © OpenStreetMap contributors, ODbL 1.0. https://www.openstreetmap.org/copyright",
+    "osm_type": "relation",
+    "osm_id": "187265",
+    "boundingbox": [
+      "40.15617",
+      "40.196647",
+      "-80.270379",
+      "-80.214805"
+    ],
+    "lat": "40.17396",
+    "lon": "-80.2461714",
+    "display_name": "Washington, Washington County, Pennsylvania, 15301, United States of America",
+    "class": "boundary",
+    "type": "administrative",
+    "importance": 0.21240568201402,
+    "icon": "https://nominatim.openstreetmap.org/images/mapicons/poi_boundary_administrative.p.20.png"
+  },
+  {
+    "place_id": "178856421",
+    "licence": "Data © OpenStreetMap contributors, ODbL 1.0. https://www.openstreetmap.org/copyright",
+    "osm_type": "relation",
+    "osm_id": "127878",
+    "boundingbox": [
+      "38.641566",
+      "38.675264",
+      "-87.208556",
+      "-87.138309"
+    ],
+    "lat": "38.6592152",
+    "lon": "-87.172789",
+    "display_name": "Washington, Daviess County, Indiana, 47501, United States of America",
+    "class": "place",
+    "type": "city",
+    "importance": 0.20183610322654,
+    "icon": "https://nominatim.openstreetmap.org/images/mapicons/poi_place_city.p.20.png"
+  },
+  {
+    "place_id": "179480048",
+    "licence": "Data © OpenStreetMap contributors, ODbL 1.0. https://www.openstreetmap.org/copyright",
+    "osm_type": "relation",
+    "osm_id": "206980",
+    "boundingbox": [
+      "38.707728",
+      "38.717447",
+      "-78.165599",
+      "-78.154658"
+    ],
+    "lat": "38.713452",
+    "lon": "-78.159444",
+    "display_name": "Washington, Rappahannock County, Virginia, 22747, United States of America",
+    "class": "boundary",
+    "type": "administrative",
+    "importance": 0.19419561712568,
+    "icon": "https://nominatim.openstreetmap.org/images/mapicons/poi_boundary_administrative.p.20.png"
+  },
+  {
+    "place_id": "177869840",
+    "licence": "Data © OpenStreetMap contributors, ODbL 1.0. https://www.openstreetmap.org/copyright",
+    "osm_type": "relation",
+    "osm_id": "179015",
+    "boundingbox": [
+      "35.527688",
+      "35.609017",
+      "-77.119446",
+      "-76.975547"
+    ],
+    "lat": "35.5493702",
+    "lon": "-77.0535574",
+    "display_name": "Washington, Beaufort County, North Carolina, 27889, United States of America",
+    "class": "boundary",
+    "type": "administrative",
+    "importance": 0.19252253171141,
+    "icon": "https://nominatim.openstreetmap.org/images/mapicons/poi_boundary_administrative.p.20.png"
+  },
+  {
+    "place_id": "177784415",
+    "licence": "Data © OpenStreetMap contributors, ODbL 1.0. https://www.openstreetmap.org/copyright",
+    "osm_type": "relation",
+    "osm_id": "119435",
+    "boundingbox": [
+      "33.705673",
+      "33.756821",
+      "-82.783627",
+      "-82.713203"
+    ],
+    "lat": "33.7367948",
+    "lon": "-82.7393089",
+    "display_name": "Washington, Wilkes County, Georgia, 30673, United States of America",
+    "class": "boundary",
+    "type": "administrative",
+    "importance": 0.19190220749699,
+    "icon": "https://nominatim.openstreetmap.org/images/mapicons/poi_boundary_administrative.p.20.png"
+  },
+  {
+    "place_id": "177563944",
+    "licence": "Data © OpenStreetMap contributors, ODbL 1.0. https://www.openstreetmap.org/copyright",
+    "osm_type": "relation",
+    "osm_id": "141263",
+    "boundingbox": [
+      "38.520888",
+      "38.59043",
+      "-91.079287",
+      "-90.9580229"
+    ],
+    "lat": "38.5581072",
+    "lon": "-91.0120878",
+    "display_name": "Washington, Franklin County, Missouri, 63090, United States of America",
+    "class": "place",
+    "type": "city",
+    "importance": 0.19161897198996,
+    "icon": "https://nominatim.openstreetmap.org/images/mapicons/poi_place_city.p.20.png"
+  },
+  {
+    "place_id": "330450",
+    "licence": "Data © OpenStreetMap contributors, ODbL 1.0. https://www.openstreetmap.org/copyright",
+    "osm_type": "node",
+    "osm_id": "141035389",
+    "boundingbox": [
+      "39.3393424",
+      "39.3793424",
+      "-120.8191077",
+      "-120.7791077"
+    ],
+    "lat": "39.3593424",
+    "lon": "-120.7991077",
+    "display_name": "Washington, Nevada County, California, 95986, United States of America",
+    "class": "place",
+    "type": "hamlet",
+    "importance": 0.18751342970414,
+    "icon": "https://nominatim.openstreetmap.org/images/mapicons/poi_place_village.p.20.png"
+  },
+  {
+    "place_id": "180000723",
+    "licence": "Data © OpenStreetMap contributors, ODbL 1.0. https://www.openstreetmap.org/copyright",
+    "osm_type": "relation",
+    "osm_id": "2016821",
+    "boundingbox": [
+      "43.128799",
+      "43.254601",
+      "-72.178497",
+      "-72.008965"
+    ],
+    "lat": "43.17614",
+    "lon": "-72.097092",
+    "display_name": "Washington, Sullivan County, New Hampshire, United States of America",
+    "class": "boundary",
+    "type": "administrative",
+    "importance": 0.18441731516491,
+    "icon": "https://nominatim.openstreetmap.org/images/mapicons/poi_boundary_administrative.p.20.png"
+  },
+  {
+    "place_id": "429983",
+    "licence": "Data © OpenStreetMap contributors, ODbL 1.0. https://www.openstreetmap.org/copyright",
+    "osm_type": "node",
+    "osm_id": "153962283",
+    "boundingbox": [
+      "39.4964511",
+      "39.5764511",
+      "-83.4790843",
+      "-83.3990843"
+    ],
+    "lat": "39.5364511",
+    "lon": "-83.4390843",
+    "display_name": "Washington Court House, Fayette County, Ohio, 43160, United States of America",
+    "class": "place",
+    "type": "town",
+    "importance": 0.18292721077974,
+    "icon": "https://nominatim.openstreetmap.org/images/mapicons/poi_place_town.p.20.png"
+  }
+]

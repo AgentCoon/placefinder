@@ -1,0 +1,300 @@
+{
+  "data": [
+    {
+      "location": {
+        "city": "Poznan",
+        "country": "Poland",
+        "latitude": 52.40905,
+        "longitude": 16.93564,
+        "street": "Kramarska 21",
+        "zip": "61-765"
+      },
+      "name": "Fat Bob Burger",
+      "id": "367229973451935"
+    },
+    {
+      "location": {
+        "city": "Poznan",
+        "country": "Poland",
+        "latitude": 52.40382,
+        "longitude": 16.93104,
+        "street": "Długa 11",
+        "zip": "61-850"
+      },
+      "name": "Burger House",
+      "id": "248863458589366"
+    },
+    {
+      "location": {
+        "city": "Poznan",
+        "country": "Poland",
+        "latitude": 52.40549,
+        "located_in": "400448525298",
+        "longitude": 16.93179,
+        "street": "Plac wiosny ludów 2",
+        "zip": "60-101"
+      },
+      "name": "Szyszka Burger",
+      "id": "400260120367205"
+    },
+    {
+      "location": {
+        "city": "Poznan",
+        "country": "Poland",
+        "latitude": 52.40572404642,
+        "longitude": 16.931560356017,
+        "zip": "61-831"
+      },
+      "name": "Burgerator Poznań",
+      "id": "748709055171206"
+    },
+    {
+      "location": {
+        "city": "Poznan",
+        "country": "Poland",
+        "latitude": 52.40647,
+        "longitude": 16.93746,
+        "street": "Garbary 47"
+      },
+      "name": "Burgery po byku",
+      "id": "1456414251039535"
+    },
+    {
+      "location": {
+        "city": "Poznan",
+        "country": "Poland",
+        "latitude": 52.402641430223,
+        "longitude": 16.946840286255,
+        "street": "Przystań",
+        "zip": "61-888"
+      },
+      "name": "Burger KONT",
+      "id": "146697502201518"
+    },
+    {
+      "location": {
+        "city": "Poznan",
+        "country": "Poland",
+        "latitude": 52.40807,
+        "longitude": 16.93686,
+        "street": "Woźna 10",
+        "zip": "61-777"
+      },
+      "name": "Burgery Kanapki Zapiekanki Ciabatta Bułki dla gastronomii",
+      "id": "507143379485976"
+    },
+    {
+      "location": {
+        "city": "Poznan",
+        "country": "Poland",
+        "latitude": 52.40443,
+        "longitude": 16.9364,
+        "street": "Plac Bernardyński"
+      },
+      "name": "WILD Burger",
+      "id": "758689517514087"
+    },
+    {
+      "location": {
+        "city": "Poznan",
+        "country": "Poland",
+        "latitude": 52.3837,
+        "longitude": 16.96763,
+        "street": "OŚ.STARE ŻEGRZE 110A",
+        "zip": "61-249"
+      },
+      "name": "Burgerownia Ranczo",
+      "id": "107447126253588"
+    },
+    {
+      "location": {
+        "city": "Stare Miasto",
+        "country": "Poland",
+        "latitude": 52.4167,
+        "longitude": 16.9333,
+        "street": "3750-A Battleground Avenue",
+        "zip": "61-345"
+      },
+      "name": "Big Burger Spot",
+      "id": "136035696603346"
+    },
+    {
+      "location": {
+        "city": "Poznan",
+        "country": "Poland",
+        "latitude": 52.3930998,
+        "longitude": 16.8978702,
+        "street": "ul. Głogowska 91",
+        "zip": "60-264"
+      },
+      "name": "Street Burger",
+      "id": "381373915554543"
+    },
+    {
+      "location": {
+        "city": "Poznan",
+        "country": "Poland",
+        "latitude": 52.4044304,
+        "longitude": 16.9363995,
+        "street": "Plac Bernardyński (róg ul Garbary)",
+        "zip": "61-844"
+      },
+      "name": "Czerwony Cielak-Burgerownia",
+      "id": "480249645476808"
+    },
+    {
+      "location": {
+        "city": "Poznan",
+        "country": "Poland",
+        "latitude": 52.38474,
+        "longitude": 16.88445,
+        "street": "Sielska 17C",
+        "zip": "60-129"
+      },
+      "name": "Burgerowo",
+      "id": "612118402198100"
+    },
+    {
+      "location": {
+        "city": "Poznan",
+        "country": "Poland",
+        "latitude": 52.3981381,
+        "longitude": 16.9534577,
+        "street": "Pleszewska 1",
+        "zip": "61-136"
+      },
+      "name": "Bobby Burger",
+      "id": "1898443203802001"
+    },
+    {
+      "location": {
+        "city": "Poznan",
+        "country": "Poland",
+        "latitude": 52.410659252118,
+        "longitude": 16.912727952003,
+        "street": "Dąbrowskiego"
+      },
+      "name": "Lawa Burger",
+      "id": "394633477372638"
+    },
+    {
+      "location": {
+        "city": "Poznan",
+        "country": "Poland",
+        "latitude": 52.391513050012,
+        "longitude": 16.920314147555,
+        "street": "ul. 28 czerwca 1956 r 122",
+        "zip": "61-526"
+      },
+      "name": "ALL MAX Burgers",
+      "id": "1671241079787685"
+    },
+    {
+      "location": {
+        "city": "Suchy Las",
+        "country": "Poland",
+        "latitude": 52.46708,
+        "longitude": 16.87321,
+        "street": "sucholeska37",
+        "zip": "62-002"
+      },
+      "name": "Burgerownia Sucholeska",
+      "id": "469460803260856"
+    },
+    {
+      "location": {
+        "city": "Poznan",
+        "country": "Poland",
+        "latitude": 52.40807,
+        "longitude": 16.93686,
+        "street": "Woźna 10",
+        "zip": "61-777"
+      },
+      "name": "Piekarnia Cukiernia Adam Nowak",
+      "id": "1711884465733731"
+    },
+    {
+      "location": {
+        "city": "Poznan",
+        "country": "Poland",
+        "latitude": 52.40836,
+        "longitude": 16.8778,
+        "street": "Swoboda 20A",
+        "zip": "60-375"
+      },
+      "name": "Pan-Burger",
+      "id": "206761086456783"
+    },
+    {
+      "location": {
+        "city": "Poznan",
+        "country": "Poland",
+        "latitude": 52.401963367149,
+        "longitude": 16.959503539385,
+        "street": "ul. Abp A. Baraniaka 8",
+        "zip": "61-131"
+      },
+      "name": "Multikino Poznań Malta",
+      "id": "196628013703771"
+    },
+    {
+      "location": {
+        "city": "Poznan",
+        "country": "Poland",
+        "latitude": 52.40679,
+        "longitude": 16.91225,
+        "street": "Roosevelta 18",
+        "zip": "60-829"
+      },
+      "name": "Piano Burger",
+      "id": "916959465090345"
+    },
+    {
+      "location": {
+        "city": "Przezmierowo",
+        "country": "Poland",
+        "latitude": 52.42345,
+        "longitude": 16.78708,
+        "street": "Rynkowa 87",
+        "zip": "62-081"
+      },
+      "name": "Diwalko Burger",
+      "id": "936938009660275"
+    },
+    {
+      "location": {
+        "city": "Poznan",
+        "country": "Poland",
+        "latitude": 52.42889,
+        "longitude": 16.91644,
+        "street": "Ul. Piątkowska 84E",
+        "zip": "60-648"
+      },
+      "name": "Fabryka Burgerów",
+      "id": "669091946542870"
+    },
+    {
+      "location": {
+        "city": "Poznan",
+        "country": "Poland",
+        "latitude": 52.39642,
+        "longitude": 16.96616,
+        "street": "katowicka 81 d/108"
+      },
+      "name": "Bydlak burger house",
+      "id": "1542928449360843"
+    },
+    {
+      "location": {
+        "city": "Swarzedz",
+        "country": "Poland",
+        "latitude": 52.4168892,
+        "longitude": 17.0824394,
+        "street": "os. Czwartaków 24h",
+        "zip": "62-020"
+      },
+      "name": "Muu Burger",
+      "id": "831619553593920"
+    }
+  ]
+}

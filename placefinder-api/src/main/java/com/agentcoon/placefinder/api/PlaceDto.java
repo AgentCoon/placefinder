@@ -3,10 +3,13 @@ package com.agentcoon.placefinder.api;
 public class PlaceDto {
 
     private String name;
-    private Float longitude;
-    private Float latitude;
+    private Double longitude;
+    private Double latitude;
 
-    private PlaceDto(String name, Float longitude, Float latitude) {
+    public PlaceDto() {
+    }
+
+    public PlaceDto(String name, Double longitude, Double latitude) {
         this.name = name;
         this.longitude = longitude;
         this.latitude = latitude;
@@ -16,18 +19,18 @@ public class PlaceDto {
         return name;
     }
 
-    public Float getLongitude() {
+    public Double getLongitude() {
         return longitude;
     }
 
-    public Float getLatitude() {
+    public Double getLatitude() {
         return latitude;
     }
 
     public static class PlaceBuilder {
         private String name;
-        private Float longitude;
-        private Float latitude;
+        private Double longitude;
+        private Double latitude;
 
         private PlaceBuilder() {}
 
@@ -40,12 +43,12 @@ public class PlaceDto {
             return this;
         }
 
-        public PlaceBuilder withLongitude(Float longitude) {
+        public PlaceBuilder withLongitude(Double longitude) {
             this.longitude = longitude;
             return this;
         }
 
-        public PlaceBuilder withLatitude(Float latitude) {
+        public PlaceBuilder withLatitude(Double latitude) {
             this.latitude = latitude;
             return this;
         }

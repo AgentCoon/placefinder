@@ -1,0 +1,24 @@
+logging:
+  level: INFO
+  loggers:
+    "com.agentcoon": DEBUG
+
+allowCORS: true
+
+facebookConfiguration:
+url: {{ facebookConfiguration.url }}
+  appId: {{ facebookConfiguration.appId }}
+  appSecret: {{ facebookConfiguration.appSecret }}
+
+nominatimClientConfiguration:
+  appKey: {{ nominatimClientConfiguration.appKey }}
+  url: {{ nominatimClientConfiguration.url }}
+
+server:
+  applicationConnectors:
+  - type: h2c
+    port: 8080
+    maxRequestHeaderSize: 100KiB
+  adminConnectors:
+  - type: http
+    port: 8081

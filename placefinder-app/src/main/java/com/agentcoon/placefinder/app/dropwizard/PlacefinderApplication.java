@@ -30,7 +30,8 @@ public class PlacefinderApplication extends Application<PlacefinderConfiguration
     public void initialize(Bootstrap<PlacefinderConfiguration> bootstrap) {
 
         guiceBundle = GuiceBundle.<PlacefinderConfiguration>newBuilder()
-                .addModule(new FacebookGraphApiAccessModule())
+                .addModule(new FacebookApiAccessModule())
+                .addModule(new MapQuestAccessModule())
                 .enableAutoConfig("com.agentcoon.placefinder.rest",
                         "com.agentcoon.placefinder.app.dropwizard.autoinject")
                 .setConfigClass(PlacefinderConfiguration.class)
@@ -52,6 +53,6 @@ public class PlacefinderApplication extends Application<PlacefinderConfiguration
             cors.addMappingForUrlPatterns(EnumSet.allOf(DispatcherType.class), true, "/*");
         }
 
-        env.jersey().register(new ApplicationHealthCheck());
+        env.healthChecks().register("Placefinder Application HealthCheck", new ApplicationHealthCheck());
     }
 }

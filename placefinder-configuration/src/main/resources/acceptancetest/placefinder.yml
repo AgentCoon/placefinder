@@ -1,0 +1,24 @@
+logging:
+  level: INFO
+  loggers:
+    "com.agentcoon": DEBUG
+
+allowCORS: true
+
+facebookConfiguration:
+  url: http://localhost:8589/
+  appId: facebook_app_id
+  appSecret: facebook_app_secret
+
+nominatimClientConfiguration:
+  appKey: mapQuest_app_key
+  url: http://localhost:8581/
+
+server:
+  applicationConnectors:
+  - type: h2c
+    port: 8380
+    maxRequestHeaderSize: 100KiB
+  adminConnectors:
+  - type: http
+    port: 8381

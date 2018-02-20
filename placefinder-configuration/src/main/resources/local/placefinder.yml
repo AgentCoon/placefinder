@@ -5,6 +5,15 @@ logging:
 
 allowCORS: true
 
+facebookConfiguration:
+  url: https://graph.facebook.com/v2.12/
+  appId: 1579356178784072
+  appSecret: dc21080c8056d2da2d6b4f8ea598462d
+
+nominatimClientConfiguration:
+  appKey: ThJ8QAlmNsJGHDoZ9H6byWsiALibXdYd
+  url: http://open.mapquestapi.com/nominatim/v1/
+
 server:
   applicationConnectors:
   - type: h2c
