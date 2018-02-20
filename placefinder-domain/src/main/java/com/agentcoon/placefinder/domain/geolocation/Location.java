@@ -93,6 +93,4 @@ public class Location {
             return new Location(latitude, longitude, displayName, boundingBox);
         }
     }
-
-
 }

@@ -6,6 +6,6 @@ import java.util.List;
 
 public interface FacebookGateway {
 
-    List<FacebookPlace> search(Float latitude, Float longitude, Integer distance,
+    List<FacebookPlace> searchPlaces(Float latitude, Float longitude, Integer distance,
                                String searchString) throws FacebookGatewayException;
 }

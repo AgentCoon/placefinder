@@ -2,7 +2,7 @@ package com.agentcoon.placefinder.app.dropwizard;
 
 import com.agentcoon.placefinder.app.dropwizard.configuration.PlacefinderConfiguration;
 import com.agentcoon.placefinder.domain.geolocation.GeoLocationProvider;
-import com.agentcoon.placefinder.infrastructure.geolocation.GeolocationGateway;
+import com.agentcoon.placefinder.infrastructure.geolocation.GeoLocationGateway;
 import com.agentcoon.placefinder.mapquest.client.MapQuestConfiguration;
 import com.agentcoon.placefinder.mapquest.client.nominatim.NominatimClient;
 import com.agentcoon.placefinder.mapquest.client.nominatim.NominatimClientFactory;
@@ -29,7 +29,6 @@ public class MapQuestAccessModule extends AbstractModule {
 
     @Override
     protected void configure() {
-
-        bind(GeoLocationProvider.class).to(GeolocationGateway.class).in(Scopes.SINGLETON);
+        bind(GeoLocationProvider.class).to(GeoLocationGateway.class).in(Scopes.SINGLETON);
     }
 }

@@ -15,19 +15,19 @@ import static com.agentcoon.placefinder.domain.geolocation.Location.Builder.aLoc
 import static org.junit.Assert.assertEquals;
 import static org.mockito.Mockito.*;
 
-public class GeolocationGatewayTest {
+public class GeoLocationGatewayTest {
 
     private NominatimGateway nominatimGateway;
     private GeolocationMapper geolocationMapper;
 
-    private GeolocationGateway geolocationGateway;
+    private GeoLocationGateway geoLocationGateway;
 
     @Before
     public void setUp() {
         nominatimGateway = mock(NominatimGateway.class);
         geolocationMapper = mock(GeolocationMapper.class);
 
-        geolocationGateway = new GeolocationGateway(nominatimGateway, geolocationMapper);
+        geoLocationGateway = new GeoLocationGateway(nominatimGateway, geolocationMapper);
     }
 
     @Test
@@ -41,7 +41,7 @@ public class GeolocationGatewayTest {
         when(nominatimGateway.findLocations(country, city)).thenReturn(Collections.singletonList(nominatimResponse));
         when(geolocationMapper.from(Collections.singletonList(nominatimResponse))).thenReturn(Collections.singletonList(location));
 
-        List<Location> result = geolocationGateway.findLocations(country, city);
+        List<Location> result = geoLocationGateway.findLocations(country, city);
         assertEquals(location, result.get(0));
     }
 
@@ -53,6 +53,6 @@ public class GeolocationGatewayTest {
 
         doThrow(GeoLocationClientException.class).when(nominatimGateway).findLocations(country, city);
 
-        geolocationGateway.findLocations(country, city);
+        geoLocationGateway.findLocations(country, city);
     }
 }

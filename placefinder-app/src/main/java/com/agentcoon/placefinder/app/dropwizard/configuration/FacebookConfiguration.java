@@ -1,15 +1,11 @@
-package com.agentoon.placefinder.facebook.client;
+package com.agentcoon.placefinder.app.dropwizard.configuration;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import io.dropwizard.Configuration;
 
 import javax.validation.constraints.NotNull;
 
-public class FacebookConfiguration extends Configuration {
-
-    @NotNull
-    private String url;
+public class FacebookConfiguration {
 
     @NotNull
     private String appId;
@@ -18,17 +14,12 @@ public class FacebookConfiguration extends Configuration {
     private String appSecret;
 
     @JsonCreator
-    public FacebookConfiguration(@JsonProperty("url") String url,
-                                 @JsonProperty("appId") String appId,
+    public FacebookConfiguration(@JsonProperty("appId") String appId,
                                  @JsonProperty("appSecret") String appSecret) {
-        this.url = url;
         this.appId = appId;
         this.appSecret = appSecret;
     }
 
-    public String getUrl() {
-        return url;
-    }
 
     public String getAppId() {
         return appId;
@@ -39,6 +30,6 @@ public class FacebookConfiguration extends Configuration {
     }
 
     public String getAccessToken() {
-        return appId + "|" + appSecret;
+        return appId + "%7C" + appSecret;
     }
 }

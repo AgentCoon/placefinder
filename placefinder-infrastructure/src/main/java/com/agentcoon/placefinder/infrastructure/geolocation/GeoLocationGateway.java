@@ -12,15 +12,14 @@ import org.slf4j.LoggerFactory;
 import javax.inject.Inject;
 import java.util.List;
 
-public class GeolocationGateway implements GeoLocationProvider {
-
+public class GeoLocationGateway implements GeoLocationProvider {
     private final Logger logger = LoggerFactory.getLogger(getClass());
 
     private final NominatimGateway nominatimGateway;
     private final GeolocationMapper geolocationMapper;
 
     @Inject
-    public GeolocationGateway(NominatimGateway nominatimGateway, GeolocationMapper geolocationMapper) {
+    public GeoLocationGateway(NominatimGateway nominatimGateway, GeolocationMapper geolocationMapper) {
         this.nominatimGateway = nominatimGateway;
         this.geolocationMapper = geolocationMapper;
     }

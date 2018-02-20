@@ -9,9 +9,10 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import javax.inject.Inject;
-import javax.ws.rs.NotFoundException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import static java.util.stream.Collectors.toList;
 
@@ -28,7 +29,7 @@ public class PlaceFinder {
         this.facebookGateway = facebookGateway;
     }
 
-    public List<FacebookPlace> findPlaces(String country, String city, String searchString) throws GeoLocationException {
+    public Map<String, List<FacebookPlace>> findPlaces(String country, String city, String searchString) throws GeoLocationException, NotFoundException {
 
         List<Location> locations = geoLocationService.getLocations(country, city);
 
@@ -37,22 +38,31 @@ public class PlaceFinder {
             throw new NotFoundException("Specified location was not found.");
         }
 
-        List<FacebookPlace> facebookPlaces = new ArrayList<>();
+        Map<String, List<FacebookPlace>> placesPerLocation = new HashMap<>();
 
         locations.forEach(location -> {
+            List<FacebookPlace> foundPlaces = getFacebookPlacesForLocation(location, searchString);
 
-            List<FacebookPlace> places = new ArrayList<>();
+            placesPerLocation.put(location.getDisplayName(), filterPlacesInNearbyCities(foundPlaces, city));
+        }
+    );
 
-            try {
-                places = facebookGateway.search(location.getLatitude(),
-                        location.getLongitude(), location.calculateRadius(), searchString);
-            } catch (FacebookGatewayException e) {
-                logger.error("An exception occurred while searching for places in {}, {}", city, country, e);
-            }
+        return placesPerLocation;
+    }
 
-            facebookPlaces.addAll(places);
-        });
+    private List<FacebookPlace> getFacebookPlacesForLocation(Location location, String searchString) {
+        List<FacebookPlace> places = new ArrayList<>();
 
-        return facebookPlaces.stream().distinct().collect(toList());
+        try {
+            places = facebookGateway.searchPlaces(location.getLatitude(),
+                    location.getLongitude(), location.calculateRadius(), searchString);
+        } catch (FacebookGatewayException e) {
+            logger.warn("An exception occurred while searching for {} places in {}.", searchString, location.getDisplayName());
+        }
+        return places;
+    }
+
+    private List<FacebookPlace> filterPlacesInNearbyCities(List<FacebookPlace> places, String city) {
+        return places.stream().filter(e -> e.getCity().equalsIgnoreCase(city)).collect(toList());
     }
 }

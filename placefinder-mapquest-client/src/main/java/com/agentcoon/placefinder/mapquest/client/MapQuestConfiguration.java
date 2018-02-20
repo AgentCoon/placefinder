@@ -3,9 +3,14 @@ package com.agentcoon.placefinder.mapquest.client;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+import javax.validation.constraints.NotNull;
+
 public class MapQuestConfiguration {
 
+    @NotNull
     private final String url;
+
+    @NotNull
     private final String appKey;
 
     @JsonCreator

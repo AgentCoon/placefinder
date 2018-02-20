@@ -7,11 +7,13 @@ public class FacebookPlace {
     private final Double latitude;
     private final Double longitude;
     private final String name;
+    private final String city;
 
-    private FacebookPlace(Double latitude, Double longitude, String name) {
+    private FacebookPlace(Double latitude, Double longitude, String name, String city) {
         this.latitude = latitude;
         this.longitude = longitude;
         this.name = name;
+        this.city = city;
     }
 
     public Double getLatitude() {
@@ -24,6 +26,10 @@ public class FacebookPlace {
 
     public String getName() {
         return name;
+    }
+
+    public String getCity() {
+        return city;
     }
 
     @Override
@@ -45,6 +51,7 @@ public class FacebookPlace {
         private Double latitude;
         private Double longitude;
         private String name;
+        private String city;
 
         public static Builder aFacebookPlace() {
             return new Builder();
@@ -65,8 +72,13 @@ public class FacebookPlace {
             return this;
         }
 
+        public Builder withCity(String city) {
+            this.city = city;
+            return this;
+        }
+
         public FacebookPlace build() {
-            return new FacebookPlace(latitude, longitude, name);
+            return new FacebookPlace(latitude, longitude, name, city);
         }
     }
 }
